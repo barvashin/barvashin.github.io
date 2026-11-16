@@ -209,24 +209,24 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- подвал ---------- */
 .site-footer { padding: 0 0 24px; }
-.footer-card { position: relative; overflow: hidden; background: #fff; border-radius: var(--radius); padding: 48px 48px 0; min-height: 560px; }
+.footer-card { position: relative; overflow: hidden; container-type: inline-size; background: #fff; border-radius: var(--radius); padding: 48px 48px calc(13% + 48px); }
 .footer-grid { display: grid; grid-template-columns: 294px 120px 225px 1fr; gap: 0 16px; position: relative; z-index: 1; }
 .footer-about { color: var(--grey); font-size: 14px; line-height: 1.45; margin-top: 20px; max-width: 260px; }
-.footer-col { display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 500; }
+.footer-col { display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 500; min-width: 0; overflow-wrap: anywhere; }
 .footer-col .eyebrow { margin-bottom: 0; }
 .footer-col a:hover { color: var(--blue); }
 .footer-bottom { position: relative; z-index: 1; margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; color: var(--grey); font-size: 13px; }
 .footer-social { display: flex; gap: 8px; }
 .footer-social a { background: var(--card-2); border-radius: 12px; padding: 10px 12px; font-size: 12px; font-weight: 700; color: var(--ink); transition: background-color .2s ease; }
 .footer-social a:hover { background: var(--blue-soft); }
-.footer-word { position: absolute; left: 29px; bottom: -78px; font-size: 250px; font-weight: 200; letter-spacing: -0.06em; color: #efefef; white-space: nowrap; line-height: 1; pointer-events: none; user-select: none; }
+/* Слово всегда во всю ширину карточки и ровно по центру: размер от ширины карточки (cqw) */
+.footer-word { position: absolute; left: 50%; transform: translateX(-50%); bottom: -0.3em; padding-right: 0.06em; font-size: 24cqw; font-weight: 200; letter-spacing: -0.06em; color: #efefef; white-space: nowrap; line-height: 1; pointer-events: none; user-select: none; }
 @media (max-width: 760px) {
-  .footer-card { padding: 28px 24px 0; min-height: 0; padding-bottom: 120px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+  .footer-card { padding: 28px 24px calc(13% + 32px); }
+  .footer-grid { grid-template-columns: auto 1fr; gap: 24px 28px; }
   .footer-grid > :first-child { grid-column: 1 / -1; }
   .footer-grid > :last-child { grid-column: 1 / -1; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .footer-word { font-size: 96px; left: 14px; bottom: -22px; }
 }
 
 /* ---------- появление при прокрутке ---------- */
@@ -246,7 +246,6 @@ html.static [data-reveal], html.no-js [data-reveal] { opacity: 1; transform: non
 @media (max-width: 1180px) and (min-width: 761px) {
   .footer-grid { grid-template-columns: 1fr 1.4fr 1.4fr; gap: 28px 24px; }
   .footer-grid > :first-child { grid-column: 1 / -1; }
-  .footer-word { font-size: 17vw; }
 }
 
 /* ---------- узкие телефоны (320–380 px) ---------- */
@@ -269,4 +268,9 @@ main { overflow-x: clip; }
   .m-actions { display: flex; }
   .burger { display: flex; }
   .site-header__inner { background: #fff; border-radius: 999px; padding: 6px 6px 6px 14px; }
+}
+
+/* Подвал на узких телефонах: колонки друг под другом, чтобы ссылки не рвались посреди слова */
+@media (max-width: 380px) {
+  .footer-grid > * { grid-column: 1 / -1; }
 }
