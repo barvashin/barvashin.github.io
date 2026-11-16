@@ -453,3 +453,7 @@ a.cp-logo:hover { transform: translateY(-4px) scale(1.06); }
   .cp-report__row { padding: 12px 12px; }
   .cp-report__bubble { max-width: none; }
 }
+
+@media (max-width: 380px) {
+  .cp-niche__name { font-size: 34px; }
+}

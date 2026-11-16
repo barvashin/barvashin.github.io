@@ -453,3 +453,9 @@
   .st-report__bubble img { width: 26px; height: 26px; }
   .st-report__bubble p { max-width: none; padding: 9px 12px; border-radius: 14px 14px 14px 4px; }
 }
+
+@media (max-width: 380px) {
+  .st-how__head { grid-template-columns: 1fr; }
+  .st-how__g .st-eyebrow { grid-column: 1; grid-row: auto; }
+  .st-cmp__chip { white-space: normal; }
+}

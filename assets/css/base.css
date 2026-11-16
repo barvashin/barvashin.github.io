@@ -248,3 +248,14 @@ html.static [data-reveal], html.no-js [data-reveal] { opacity: 1; transform: non
   .footer-grid > :first-child { grid-column: 1 / -1; }
   .footer-word { font-size: 17vw; }
 }
+
+/* ---------- узкие телефоны (320–380 px) ---------- */
+@media (max-width: 380px) {
+  :root { --pad: 16px; }
+  main section { overflow-x: clip; }
+  main h1, main h2, main h3, main p, main li, main a, main span { overflow-wrap: break-word; }
+  .h1 { font-size: 38px; }
+  .h2 { font-size: 30px; }
+  .site-header__inner { padding-left: 10px; }
+  .m-actions .btn { padding: 10px 12px; }
+}

@@ -596,3 +596,7 @@
   .tr-final__report { width: auto; margin: 0; padding: 16px 14px; }
   .tr-final__row b { font-size: 17px; }
 }
+
+@media (max-width: 380px) {
+  .tr-near__title { font-size: 30px; flex-wrap: wrap; }
+}
