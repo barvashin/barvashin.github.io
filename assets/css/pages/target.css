@@ -130,8 +130,8 @@
 .tr-variant__img { position: relative; height: 96px; border-radius: 10px; background: #ccd9f2; display: flex; align-items: center; justify-content: center; }
 .is-best .tr-variant__img { background: #0061ff; }
 .tr-variant__img--lines i { position: absolute; left: 14px; height: 8px; border-radius: 4px; }
-.tr-variant__img--lines i:first-child { top: 66px; width: 60px; background: rgba(255,255,255,.9); }
-.tr-variant__img--lines i:last-child { top: 80px; width: 40px; background: rgba(255,255,255,.7); }
+.tr-variant__img--lines i:first-child { bottom: 22px; width: 60px; max-width: 60%; background: rgba(255,255,255,.9); }
+.tr-variant__img--lines i:last-child { bottom: 8px; width: 40px; max-width: 40%; background: rgba(255,255,255,.7); }
 
 /* переписка */
 .tr-chat { background: #fff; border: 1px solid rgba(10,10,10,.08); display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px 22px; font-size: 13px; color: #0a0a0a; }
@@ -403,7 +403,7 @@
 }
 @media (max-width: 960px) and (min-width: 761px) {
   .tr-row { flex-wrap: wrap; }
-  .tr-row__pic { width: 100%; margin-left: 88px; }
+  .tr-row__pic { width: calc(100% - 88px); margin-left: 88px; }
   .tr-main-case { flex-direction: column; align-items: flex-start; }
   .tr-phone-wrap { align-self: center; }
   .tr-final__card { flex-direction: column; }
@@ -583,6 +583,7 @@
   .tr-faq { background-position: right top; background-size: 760px auto; }
   .tr-faq__row { flex-direction: column; gap: 24px; }
   .tr-faq__title { font-size: 34px; }
+  .tr-faq__title b { display: block; }
   .tr-faq__list { width: 100%; }
 
   /* 11 */
