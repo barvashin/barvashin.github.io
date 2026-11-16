@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ROOT}}assets/css/base.css">
+<link rel="stylesheet" href="{{ROOT}}assets/css/pages/{{PAGE}}.css">
+<link rel="icon" href="{{ROOT}}assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ===== Шапка (одинаковая на всех страницах; is-active у текущего раздела) ===== -->
+<header class="site-header">
+  <div class="container">
+    <div class="site-header__inner">
+      <a class="logo" href="{{ROOT}}index.html"><span class="logo__mark">РБ</span>барвашин</a>
+      <nav class="nav" aria-label="Разделы">
+        <a href="{{ROOT}}index.html#about">Обо мне</a>
+        <a href="{{ROOT}}cases.html">Кейсы</a>
+        <a href="{{ROOT}}articles.html">Статьи</a>
+        <a href="{{ROOT}}mentorship.html">Наставничество</a>
+        <a href="{{ROOT}}contacts.html">Контакты</a>
+      </nav>
+      <div class="tg-pill">
+        <span>@rakhimbarvashin</span>
+        <a class="btn btn--primary" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">Написать в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="m-actions">
+        <a class="btn btn--primary" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">Telegram</a>
+        <button class="burger" type="button" aria-label="Открыть меню" data-menu-open><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="header-spacer"></div>
+
+<!-- ===== Мобильное меню ===== -->
+<div class="m-menu" aria-hidden="true">
+  <div class="m-menu__top">
+    <a class="logo" href="{{ROOT}}index.html"><span class="logo__mark">РБ</span>барвашин</a>
+    <button class="m-menu__close" type="button" aria-label="Закрыть меню" data-menu-close>✕</button>
+  </div>
+  <nav class="m-menu__links">
+    <a href="{{ROOT}}index.html">Главная</a>
+    <a href="{{ROOT}}index.html#about">Обо мне</a>
+    <a href="{{ROOT}}cases.html">Кейсы</a>
+    <a href="{{ROOT}}articles.html">Статьи</a>
+    <a href="{{ROOT}}mentorship.html">Наставничество</a>
+    <a href="{{ROOT}}contacts.html">Контакты</a>
+  </nav>
+  <div class="eyebrow m-menu__label">Услуги и обучение</div>
+  <nav class="m-menu__services">
+    <a href="{{ROOT}}smm.html">SMM под ключ</a>
+    <a href="{{ROOT}}strategy.html">Стратегическая сессия</a>
+    <a href="{{ROOT}}target.html">Таргет и заявки</a>
+    <a href="{{ROOT}}start-smm.html">Старт в SMM</a>
+    <a href="{{ROOT}}mini-course.html">Мини-курс</a>
+  </nav>
+  <div class="m-menu__bottom">
+    <a class="btn btn--outline btn--block" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">Написать в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<main>
+{{CONTENT}}
+</main>
+
+<!-- ===== Подвал (одинаковый на всех страницах) ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-card">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="{{ROOT}}index.html"><span class="logo__mark">РБ</span>барвашин</a>
+          <p class="footer-about">Рахим Барвашин, SMM-специалист и маркетолог.</p>
+        </div>
+        <div class="footer-col">
+          <span class="eyebrow">Разделы</span>
+          <a href="{{ROOT}}index.html#about">Обо мне</a>
+          <a href="{{ROOT}}cases.html">Кейсы</a>
+          <a href="{{ROOT}}articles.html">Статьи</a>
+          <a href="{{ROOT}}mentorship.html">Наставничество</a>
+          <a href="{{ROOT}}contacts.html">Контакты</a>
+        </div>
+        <div class="footer-col">
+          <span class="eyebrow">Соцсети</span>
+          <a href="https://instagram.com/rakhimbarvashin" target="_blank" rel="noopener">Instagram @rakhimbarvashin</a>
+          <a href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">Telegram t.me/rakhimbarvashin</a>
+          <a href="https://youtube.com/@rakhimbarvashin" target="_blank" rel="noopener">YouTube @rakhimbarvashin</a>
+        </div>
+        <div class="footer-col">
+          <span class="eyebrow">Статьи</span>
+          <a href="https://teletype.in/@rakhimbarvashin" target="_blank" rel="noopener">teletype.in/@rakhimbarvashin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Рахим Барвашин</span>
+        <div class="footer-social">
+          <a href="https://instagram.com/rakhimbarvashin" target="_blank" rel="noopener">IG</a>
+          <a href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">TG</a>
+          <a href="https://youtube.com/@rakhimbarvashin" target="_blank" rel="noopener">YT</a>
+        </div>
+      </div>
+      <div class="footer-word" aria-hidden="true">барвашин</div>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ROOT}}assets/js/main.js"></script>
+</body>
+</html>

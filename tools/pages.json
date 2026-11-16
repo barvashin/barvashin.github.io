@@ -1,0 +1,28 @@
+[
+  {"slug": "index", "out": "index.html", "css": "index", "active": "", "title": "Рахим Барвашин — SMM, который приводит заявки", "desc": "SMM-специалист и маркетолог: стратегия, Reels, таргет и воронки в директ. Кейсы в США, ОАЭ, Азербайджане и России."},
+  {"slug": "cases", "out": "cases.html", "css": "cases", "active": "cases", "title": "Кейсы — Рахим Барвашин", "desc": "Проекты с цифрами: выручка, заявки, окупаемость рекламы."},
+  {"slug": "articles", "out": "articles.html", "css": "articles", "active": "articles", "title": "Статьи — Рахим Барвашин", "desc": "Пишу о маркетинге без воды: SMM, продажи, заявки."},
+  {"slug": "mentorship", "out": "mentorship.html", "css": "mentorship", "active": "mentorship", "title": "Наставничество — Рахим Барвашин", "desc": "Учу SMM с личным разбором: наставничество, мини-курс, канал и бот."},
+  {"slug": "contacts", "out": "contacts.html", "css": "contacts", "active": "contacts", "title": "Контакты — Рахим Барвашин", "desc": "Напишите в Telegram — разберу ваш профиль."},
+  {"slug": "smm", "out": "smm.html", "css": "smm", "active": "", "title": "SMM под ключ — Рахим Барвашин", "desc": "Стратегия, контент-план, Reels и ведение профиля: от плана до заявок."},
+  {"slug": "strategy", "out": "strategy.html", "css": "strategy", "active": "", "title": "Стратегическая сессия — Рахим Барвашин", "desc": "10 дней глубокого анализа. На выходе — готовая стратегия."},
+  {"slug": "target", "out": "target.html", "css": "target", "active": "", "title": "Таргет и заявки — Рахим Барвашин", "desc": "Реклама в Meta и воронки в директ и WhatsApp. Считаю цену заявки."},
+  {"slug": "start-smm", "out": "start-smm.html", "css": "start-smm", "active": "mentorship", "title": "Наставничество «Старт в SMM» — Рахим Барвашин", "desc": "12 недель, 36 созвонов, личный разбор каждой работы."},
+  {"slug": "mini-course", "out": "mini-course.html", "css": "mini-course", "active": "mentorship", "title": "Мини-курс «SMM на миллион» — Рахим Барвашин", "desc": "Маркетинг, KPI и разговор с клиентом на языке денег."},
+
+  {"slug": "case-notjustwall", "out": "cases/notjustwall.html", "css": "case-notjustwall", "active": "cases", "title": "NotJustWall — кейс", "desc": "$2,18 млн выручки клиента за 20 месяцев."},
+  {"slug": "case-noble-life-safari", "out": "cases/noble-life-safari.html", "css": "case-noble-life-safari", "active": "cases", "title": "Noble Life Safari — кейс", "desc": "Окупаемость рекламы ×10, заявка $1,5–4."},
+  {"slug": "case-sea-breeze", "out": "cases/sea-breeze.html", "css": "case-sea-breeze", "active": "cases", "title": "Sea Breeze — кейс", "desc": "504 лида при бюджете $380 и квартира за $225 000."},
+  {"slug": "case-melanj-n9", "out": "cases/melanj-n9.html", "css": "case-melanj-n9", "active": "cases", "title": "Melanj N9 — кейс", "desc": "568 заявок и 87 продаж за 4 месяца."},
+  {"slug": "case-substance-moscow", "out": "cases/substance-moscow.html", "css": "case-substance-moscow", "active": "cases", "title": "Substance Moscow — кейс", "desc": "Все места на Формулу-1 за полдня."},
+  {"slug": "case-baristica", "out": "cases/baristica.html", "css": "case-baristica", "active": "cases", "title": "Baristica Shop — кейс", "desc": "Охват 280 327 за 3 месяца."},
+  {"slug": "case-atesgah", "out": "cases/atesgah.html", "css": "case-atesgah", "active": "cases", "title": "Ateşgah — кейс", "desc": "Охваты выросли в 11 раз."},
+  {"slug": "case-coffeebar", "out": "cases/coffeebar.html", "css": "case-coffeebar", "active": "cases", "title": "Coffeebar — кейс", "desc": "Просмотры ×2 за полтора месяца."},
+  {"slug": "case-beauty-salon", "out": "cases/beauty-salon.html", "css": "case-beauty-salon", "active": "cases", "title": "Салон красоты в Дубае — кейс", "desc": "18 000+ диалогов из рекламы."},
+  {"slug": "case-online-school", "out": "cases/online-school.html", "css": "case-online-school", "active": "cases", "title": "Онлайн-школа — кейс", "desc": "$50 430 выручки с нуля."},
+  {"slug": "case-sensum", "out": "cases/sensum.html", "css": "case-sensum", "active": "cases", "title": "Sensum Floristry — кейс", "desc": "Реклама к 8 марта окупилась в 13 раз."},
+
+  {"slug": "article-marketing-thinking", "out": "articles/marketing-thinking.html", "css": "article-marketing-thinking", "active": "articles", "title": "Что такое маркетинговое мышление — Рахим Барвашин", "desc": "SMM — это маркетинг, а не картинки."},
+  {"slug": "article-commercial-proposal", "out": "articles/commercial-proposal.html", "css": "article-commercial-proposal", "active": "articles", "title": "Как написать КП, которое читают до конца — Рахим Барвашин", "desc": "Структура коммерческого предложения, которое дочитывают."},
+  {"slug": "article-profile-mistakes", "out": "articles/profile-mistakes.html", "css": "article-profile-mistakes", "active": "articles", "title": "7 ошибок, из-за которых профиль не приносит заявки — Рахим Барвашин", "desc": "Проверь свой профиль по списку."}
+]

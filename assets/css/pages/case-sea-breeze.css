@@ -1,0 +1,300 @@
+/* =========================================================
+   Кейс NotJustWall (Figma 169:2 / 169:445)
+   Первая часть файла — общий каркас страниц кейсов (cs-*):
+   крошки, шапки секций, «Другие кейсы», финальный блок.
+   Он одинаковый в case-notjustwall / case-noble-life-safari /
+   case-sea-breeze / case-melanj-n9.
+   ========================================================= */
+
+/* ---------- общий каркас кейсов ---------- */
+.cs-sec { padding-top: var(--section); }
+.cs-sec--pb { padding-bottom: var(--section); }
+
+.cs-crumbs { display: flex; flex-wrap: wrap; gap: 4px; font-size: 14px; font-weight: 500; color: var(--grey); }
+.cs-crumbs a { transition: color .2s ease; }
+.cs-crumbs a:hover { color: var(--blue); }
+.cs-crumbs span:last-child { font-weight: 600; color: var(--ink); }
+.cs-crumbs--light, .cs-crumbs--light span:last-child { color: #fff; }
+.cs-crumbs--light a:hover { color: #a9c6ff; }
+
+.cs-badge { padding: 5px 5px 5px 6px; color: var(--ink); }
+.cs-badge .count { padding: 4px 10px; }
+
+.cs-head { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; max-width: 720px; }
+.cs-h2 { font-size: 58px; font-weight: 300; line-height: 1.04; letter-spacing: -0.04em; }
+.cs-h2 b { font-weight: 700; }
+.cs-lead { font-size: 17px; line-height: 1.45; color: var(--grey); }
+.cs-body { margin-top: 44px; }
+
+.cs-chip { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; line-height: 1.33; white-space: nowrap; }
+.cs-chip--grey { background: var(--card-2); color: var(--grey); }
+.cs-chip--soft { background: var(--blue-soft); color: var(--blue); }
+.cs-chip--white { background: #fff; color: var(--blue); }
+.cs-chip--plain { background: var(--card-2); color: var(--ink); font-weight: 500; }
+
+.cs-white { color: #fff; }
+.cs-white .cs-lead { color: rgba(255, 255, 255, .75); }
+
+/* Первый экран на узоре (шапка сайта лежит поверх узора) */
+.cs-hero { position: relative; margin-top: -77px; padding: 141px 0 20px; background: #e3e9f3 url("../../img/b858a7a2fbe642.png") center top / cover no-repeat; }
+.cs-hero__row { margin-top: 28px; display: flex; align-items: center; gap: 40px; }
+.cs-hero__text { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.cs-h1 { font-size: 64px; font-weight: 300; line-height: 1.04; letter-spacing: -0.04em; }
+.cs-h1 b { font-weight: 700; }
+.cs-hero__p { font-size: 18px; line-height: 1.5; color: var(--grey); }
+.cs-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.cs-btns .btn { padding: 13px 20px; }
+.cs-btns .btn--outline { border-width: 1px; padding: 12px 19px; }
+
+/* Плашка на фото */
+.cs-float { position: absolute; z-index: 2; background: #fff; color: var(--ink); border-radius: 20px; padding: 14px 18px; box-shadow: 0 18px 44px rgba(0, 0, 0, .14); }
+.cs-float small { display: block; font-size: 12px; font-weight: 500; color: var(--grey); }
+.cs-float b { display: block; font-size: 19px; font-weight: 700; white-space: nowrap; }
+.cs-float--logo { display: flex; align-items: center; gap: 12px; }
+.cs-float--logo img { width: 36px; height: 36px; border-radius: 50%; }
+.cs-float--logo b { margin-top: 2px; font-size: 17px; }
+.cs-float--place b { margin-top: 4px; }
+
+/* Таблица фактов */
+.cs-facts { margin: 0; flex: 1; min-width: 0; background: #fff; border-radius: 28px; padding: 10px 32px; }
+.cs-facts > div { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.cs-facts > div:last-child { border-bottom: 0; }
+.cs-facts dt { flex: none; width: 200px; font-size: 15px; font-weight: 500; color: var(--grey); }
+.cs-facts dd { margin: 0; flex: 1; font-size: 18px; font-weight: 600; line-height: 1.35; }
+
+/* «Другие кейсы» */
+.cs-more__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cs-more__card { display: flex; flex-direction: column; background: #fff; border-radius: 28px; padding: 10px; }
+.cs-more__photo { height: 220px; border-radius: 20px; overflow: hidden; background: #d8d8d8; }
+.cs-more__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.cs-more__card:hover .cs-more__photo img { transform: scale(1.04); }
+.cs-more__text { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px 18px 22px; }
+.cs-more__brand { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
+.cs-more__brand img { width: 30px; height: 30px; border-radius: 50%; }
+.cs-more__title { font-size: 22px; font-weight: 700; line-height: 1.2; }
+.cs-more__desc { font-size: 15px; line-height: 1.45; color: var(--grey); }
+.cs-more .link-arrow { gap: 8px; }
+
+/* Финальный блок */
+.cs-final-sec { padding-top: var(--section); padding-bottom: 40px; }
+.cs-final { position: relative; overflow: hidden; border-radius: 36px; min-height: 559px; padding: 56px; display: flex; justify-content: space-between; gap: 40px; color: #fff; background: var(--blue) center / cover no-repeat; }
+.cs-final__text { display: flex; flex-direction: column; align-items: flex-start; max-width: 600px; }
+.cs-final__chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #1a72fe; font-size: 12px; font-weight: 500; }
+.cs-final__chip img { width: 6px; height: 6px; }
+.cs-final__title { margin-top: 20px; font-size: 62px; font-weight: 300; line-height: 1.04; letter-spacing: -0.04em; }
+.cs-final__title b { font-weight: 700; }
+.cs-final__lead { margin-top: 20px; max-width: 470px; font-size: 17px; line-height: 1.5; color: #d6e4ff; }
+.cs-final .tg-form { margin-top: 28px; width: 470px; max-width: 100%; padding: 6px 6px 6px 20px; }
+.cs-final .tg-form input { font-size: 14px; }
+.cs-final .tg-form .btn { padding: 12px 18px; font-size: 14px; }
+.cs-final__btn { display: none; margin-top: 4px; }
+.cs-report { flex: none; align-self: flex-start; margin-top: 8px; margin-right: 0; width: 384px; background: #fff; color: var(--ink); border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.cs-report__head { padding-bottom: 6px; }
+.cs-report__title { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+.cs-report__sub { margin-top: 2px; font-size: 12px; color: var(--grey); }
+.cs-report__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--card-2); border-radius: 14px; padding: 11px 14px; }
+.cs-report__row small { display: block; font-size: 12px; font-weight: 500; color: var(--grey); }
+.cs-report__row b { display: block; margin-top: 1px; font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.37; }
+.cs-report__icon { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); }
+.cs-report__icon img { width: 30px; height: 30px; }
+.cs-report__msg { display: flex; align-items: flex-end; gap: 8px; padding-top: 4px; }
+.cs-report__msg img { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; object-fit: cover; }
+.cs-report__msg p { background: var(--blue); color: #fff; border-radius: 16px 16px 16px 4px; padding: 10px 14px; font-size: 13px; font-weight: 500; line-height: 1.4; max-width: 298px; }
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .cs-h1 { font-size: 52px; }
+  .cs-final { padding: 44px; }
+  .cs-final__title { font-size: 50px; }
+  .cs-report { width: 340px; }
+}
+@media (max-width: 960px) and (min-width: 761px) {
+  .cs-final { flex-direction: column; }
+  .cs-more__grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 760px) {
+  .cs-hero { margin-top: -68px; padding: 104px 0 56px; }
+  .cs-hero__row { margin-top: 18px; flex-direction: column; align-items: stretch; gap: 28px; }
+  .cs-hero__text { gap: 16px; }
+  .cs-h1 { font-size: 38px; }
+  .cs-hero__p { font-size: 15px; }
+  .cs-float b { font-size: 17px; }
+  .cs-float--logo b { font-size: 15px; }
+  .cs-crumbs { font-size: 13px; }
+  .cs-head { gap: 14px; }
+  .cs-h2 { font-size: 34px; }
+  .cs-lead { font-size: 15px; }
+  .cs-body { margin-top: 28px; }
+
+  .cs-facts { width: 100%; padding: 6px 20px; border-radius: 24px; }
+  .cs-facts > div { flex-direction: column; gap: 4px; padding: 14px 0; }
+  .cs-facts dt { width: auto; font-size: 13px; }
+  .cs-facts dd { font-size: 16px; }
+
+  .cs-more__grid { grid-template-columns: 1fr; gap: 12px; }
+  .cs-more__photo { height: 170px; }
+  .cs-more__text { padding: 18px 12px 16px; }
+  .cs-more__title { font-size: 20px; }
+
+  .cs-final-sec { padding-bottom: 10px; }
+  .cs-final { flex-direction: column; gap: 16px; padding: 24px; border-radius: 28px; min-height: 0; }
+  .cs-final__text { gap: 16px; max-width: none; }
+  .cs-final__chip { font-size: 11px; }
+  .cs-final__title { margin-top: 0; font-size: 34px; line-height: 1.08; }
+  .cs-final__lead { margin-top: 0; font-size: 15px; }
+  .cs-final .tg-form { display: none; }
+  .cs-final__btn { display: flex; width: 100%; padding: 15px 20px; font-size: 16px; color: var(--blue); }
+  .cs-report { width: 100%; margin: 0; padding: 14px; border-radius: 20px; }
+  .cs-report__title { font-size: 16px; }
+  .cs-report__head { padding-bottom: 4px; }
+  .cs-report__row { padding: 10px 12px; border-radius: 12px; }
+  .cs-report__row b { font-size: 18px; }
+  .cs-report__msg img { width: 26px; height: 26px; }
+  .cs-report__msg p { padding: 9px 12px; }
+}
+
+
+/* =========================================================
+   Страница Sea Breeze (Figma 171:4254 / 171:4611)
+   ========================================================= */
+
+/* 01 Первый экран: заголовок + описание, ниже «уравнение» */
+.sb-hero .cs-hero__row { align-items: flex-end; }
+.sb-hero .cs-h1 { font-size: 66px; }
+.sb-hero__desc { flex: none; width: 440px; display: flex; flex-direction: column; gap: 18px; }
+.sb-hero__desc .cs-hero__p { font-size: 17px; }
+.sb-eq { margin-top: 48px; display: flex; align-items: center; gap: 20px; }
+.sb-eq__budget { flex: none; align-self: stretch; width: 380px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 10px; padding: 36px; border-radius: 28px; background: #fff; }
+.sb-eq__budget b { font-size: 128px; font-weight: 200; line-height: 1; letter-spacing: -0.06em; }
+.sb-eq__budget span:last-child { font-size: 15px; font-weight: 500; color: var(--grey); }
+.sb-eq__arrow { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; }
+.sb-eq__arrow img { width: 28px; height: 28px; }
+.sb-eq__photo { position: relative; flex: 1; min-width: 0; height: 400px; border-radius: 28px; overflow: hidden; background: #9db5d3; }
+.sb-eq__photo > img { width: 100%; height: 100%; object-fit: cover; }
+.sb-deal { position: absolute; left: 24px; top: 176px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 28px; border-radius: 22px; color: #fff; background: var(--blue) center / cover no-repeat; box-shadow: 0 18px 44px rgba(0, 0, 0, .22); }
+.sb-deal b { font-size: 84px; font-weight: 700; line-height: 1; letter-spacing: -0.05em; white-space: nowrap; }
+.sb-deal span:last-child { font-size: 15px; font-weight: 500; color: rgba(255, 255, 255, .85); white-space: nowrap; }
+
+/* 02 Кампания 1 */
+.sb-c1 { display: flex; align-items: flex-start; gap: 16px; }
+.sb-phone-card { flex: none; align-self: stretch; width: 384px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 32px; border-radius: 28px; background: var(--blue-soft); }
+.sb-phone { width: 230px; height: 498px; padding: 4px; border-radius: 35px; background: #0b0b0b; box-shadow: 0 24px 50px rgba(0, 0, 0, .22); }
+.sb-phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; }
+.sb-phone-card p { font-size: 13px; font-weight: 500; color: var(--blue); }
+.sb-c1 .cs-facts > div { padding: 18px 0; }
+.sb-c1 .cs-facts dt { width: 160px; }
+
+/* 03 Две кампании */
+.sb-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.sb-camp { padding: 32px; border-radius: 28px; background: #fff; }
+.sb-camp--dark { background: #0d1016; color: #fff; }
+.sb-camp__head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding-bottom: 16px; }
+.sb-camp__head h3 { font-size: 26px; font-weight: 700; line-height: 1.37; }
+.sb-camp--dark .cs-chip { background: var(--blue); color: #fff; }
+.sb-camp dl { margin: 0; }
+.sb-camp dl > div { line-height: 1.37; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-top: 1px solid rgba(11, 11, 11, .08); }
+.sb-camp--dark dl > div { border-top-color: rgba(255, 255, 255, .12); }
+.sb-camp dt { font-size: 15px; font-weight: 500; color: var(--grey); }
+.sb-camp--dark dt { color: rgba(255, 255, 255, .6); }
+.sb-camp dd { margin: 0; text-align: right; font-size: 17px; font-weight: 600; white-space: nowrap; }
+.sb-camp dd.big { font-size: 24px; font-weight: 700; }
+
+/* 04 Как работала вторая кампания */
+.sb-dark { position: relative; overflow: hidden; background: #0a0f1c; }
+.sb-dark__bg { position: absolute; inset: 0; }
+.sb-dark__bg img { width: 100%; height: 100%; object-fit: cover; }
+.sb-dark__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 10, 26, .35) 0%, rgba(5, 10, 26, .1) 100%), rgba(5, 10, 24, .64); }
+.sb-dark .container { position: relative; }
+.sb-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.sb-step { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 24px; border-radius: 22px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .22); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #fff; }
+.sb-step__num { padding: 8px 12px; border-radius: 999px; background: #fff; color: var(--blue); font-size: 13px; font-weight: 600; line-height: 1.37; }
+.sb-step:last-child .sb-step__num { background: var(--blue); color: #fff; }
+.sb-step small { font-size: 13px; font-weight: 500; color: rgba(255, 255, 255, .65); }
+.sb-step h3 { font-size: 20px; font-weight: 700; line-height: 1.25; }
+.sb-funnel { margin-top: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; color: #fff; }
+.sb-funnel > div { display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
+.sb-funnel b { font-size: 88px; font-weight: 200; line-height: 1; letter-spacing: -0.05em; }
+.sb-funnel > div:last-child b { font-weight: 700; }
+.sb-funnel span { font-size: 15px; font-weight: 500; color: rgba(255, 255, 255, .7); }
+.sb-funnel > img { width: 28px; height: 28px; }
+
+/* 05 Цитата на фото */
+.sb-quote { position: relative; height: 500px; border-radius: 28px; overflow: hidden; background: #9db5d3; }
+.sb-quote > img { width: 100%; height: 100%; object-fit: cover; }
+.sb-quote__card { position: absolute; left: 40px; top: 40px; width: 600px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 36px; border-radius: 24px; background: #fff; box-shadow: 0 18px 44px rgba(0, 0, 0, .18); }
+.sb-quote__card blockquote { margin: 0; font-size: 32px; font-weight: 300; line-height: 1.2; letter-spacing: -0.02em; }
+.sb-quote__card blockquote b { font-weight: 700; }
+.sb-quote__by { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--grey); }
+.sb-quote__by img { width: 32px; height: 32px; border-radius: 50%; }
+
+/* ---------- 1024 ---------- */
+@media (max-width: 1200px) and (min-width: 761px) {
+  .sb-hero .cs-h1 { font-size: 54px; }
+  .sb-hero__desc { width: 380px; }
+  .sb-eq__budget { width: 300px; padding: 28px; }
+  .sb-eq__budget b { font-size: 96px; }
+  .sb-deal b { font-size: 60px; }
+  .sb-deal { top: auto; bottom: 24px; }
+  .sb-phone-card { width: 320px; }
+  .sb-c1 .cs-facts dt { width: 120px; }
+  .sb-camp { padding: 24px; }
+  .sb-steps { grid-template-columns: repeat(2, 1fr); }
+  .sb-funnel b { font-size: 64px; }
+}
+@media (max-width: 960px) and (min-width: 761px) {
+  .sb-hero .cs-hero__row { flex-direction: column; align-items: flex-start; }
+  .sb-hero__desc { width: 100%; }
+  .sb-eq { flex-direction: column; align-items: stretch; }
+  .sb-eq__budget { width: 100%; }
+  .sb-eq__arrow { align-self: center; }
+  .sb-eq__arrow img { transform: rotate(90deg); }
+  .sb-eq__photo { flex: none; }
+  .sb-c1 { flex-direction: column; }
+  .sb-phone-card { width: 100%; }
+  .sb-compare { grid-template-columns: 1fr; }
+}
+
+/* ---------- мобилка ---------- */
+@media (max-width: 760px) {
+  .sb-hero { padding-bottom: 0; }
+  .sb-hero .cs-hero__row { margin-top: 18px; gap: 16px; }
+  .sb-hero .cs-h1 { font-size: 38px; }
+  .sb-hero .cs-hero__text { gap: 16px; }
+  .sb-hero__desc { width: 100%; }
+  .sb-hero__desc .cs-hero__p { font-size: 15px; }
+  .sb-eq { margin-top: 28px; flex-direction: column; align-items: stretch; gap: 12px; }
+  .sb-eq__budget { width: 100%; padding: 24px; border-radius: 24px; }
+  .sb-eq__budget b { font-size: 80px; }
+  .sb-eq__arrow { align-self: center; width: 50px; height: 50px; }
+  .sb-eq__arrow img { width: 22px; height: 22px; transform: rotate(90deg); }
+  .sb-eq__photo { flex: none; height: 440px; border-radius: 24px; }
+  .sb-deal { left: 14px; top: auto; bottom: 14px; width: 272px; padding: 20px; }
+  .sb-deal b { font-size: 48px; }
+
+  .sb-c1 { flex-direction: column; gap: 12px; }
+  .sb-phone-card { width: 100%; padding: 24px; border-radius: 24px; }
+  .sb-phone { width: 200px; height: 433px; border-radius: 30px; }
+  .sb-phone img { border-radius: 26px; }
+  .sb-c1 .cs-facts > div { padding: 14px 0; }
+  .sb-c1 .cs-facts dt { width: auto; }
+
+  .sb-compare { grid-template-columns: 1fr; gap: 12px; }
+  .sb-camp { padding: 20px; border-radius: 24px; }
+  .sb-camp__head h3 { font-size: 22px; }
+  .sb-camp dl > div { padding: 11px 0; }
+  .sb-camp dt { font-size: 13px; }
+  .sb-camp dd { font-size: 15px; }
+  .sb-camp dd.big { font-size: 20px; }
+
+  .sb-steps { grid-template-columns: 1fr; }
+  .sb-step { padding: 18px; }
+  .sb-step h3 { font-size: 18px; }
+  .sb-funnel { margin-top: 28px; gap: 8px; }
+  .sb-funnel b { font-size: 44px; }
+  .sb-funnel span { font-size: 13px; }
+  .sb-funnel > img { width: 18px; height: 18px; }
+
+  .sb-quote { height: 460px; border-radius: 24px; }
+  .sb-quote__card { left: 14px; right: 14px; top: auto; bottom: 14px; width: auto; padding: 22px; border-radius: 20px; }
+  .sb-quote__card blockquote { font-size: 22px; }
+}
