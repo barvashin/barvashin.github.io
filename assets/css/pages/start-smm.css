@@ -409,3 +409,8 @@
   .ss-bubble img { width: 26px; height: 26px; }
   .ss-bubble p { width: auto; flex: 1; padding: 9px 12px; }
 }
+
+/* FAQ: узор фиксированного размера, не тянется и не обрезается при открытии вопросов */
+@media (min-width: 761px) {
+  .ss-faq { background-size: max(1440px, 100%) auto; background-position: center top; min-height: max(537px, calc(100vw * 537 / 1440)); }
+}

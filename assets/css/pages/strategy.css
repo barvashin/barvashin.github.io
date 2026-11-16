@@ -459,3 +459,8 @@
   .st-how__g .st-eyebrow { grid-column: 1; grid-row: auto; }
   .st-cmp__chip { white-space: normal; }
 }
+
+/* FAQ: узор фиксированного размера, не тянется и не обрезается при открытии вопросов */
+@media (min-width: 761px) {
+  .st-faq { background-size: max(1440px, 100%) auto; background-position: center top; min-height: max(537px, calc(100vw * 537 / 1440)); }
+}

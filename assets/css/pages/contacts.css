@@ -433,3 +433,8 @@ main .btn--outline { padding: 12px 18px; }
   .ct-final__form input { font-size: 13px; }
   .ct-final__form .btn { padding: 12px 14px; font-size: 13px; }
 }
+
+/* FAQ: узор фиксированного размера, не тянется и не обрезается при открытии вопросов */
+@media (min-width: 761px) {
+  .ct-faq { background-size: max(1440px, 100%) auto; background-position: center top; min-height: max(537px, calc(100vw * 537 / 1440)); }
+}

@@ -600,3 +600,8 @@
 @media (max-width: 380px) {
   .tr-near__title { font-size: 30px; flex-wrap: wrap; }
 }
+
+/* FAQ: узор фиксированного размера, не тянется и не обрезается при открытии вопросов */
+@media (min-width: 761px) {
+  .tr-faq { background-size: max(1440px, 100%) auto; background-position: center top; min-height: max(537px, calc(100vw * 537 / 1440)); }
+}

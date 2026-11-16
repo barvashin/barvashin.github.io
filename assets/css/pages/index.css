@@ -638,3 +638,8 @@
   .bubble--sm .bubble__msg { padding: 9px 12px; border-radius: 14px 14px 14px 4px; }
   .bubble--sm .bubble__msg p { width: 220px; }
 }
+
+/* FAQ: узор фиксированного размера, не тянется и не обрезается при открытии вопросов */
+@media (min-width: 761px) {
+  .qa { background-size: max(1440px, 100%) auto; background-position: center top; min-height: max(537px, calc(100vw * 537 / 1440)); }
+}

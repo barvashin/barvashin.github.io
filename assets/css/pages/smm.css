@@ -549,3 +549,8 @@
   .smm-report__bubble img { width: 26px; height: 26px; }
   .smm-report__bubble p { max-width: none; padding: 9px 12px; border-radius: 14px 14px 14px 4px; }
 }
+
+/* FAQ: узор фиксированного размера, не тянется и не обрезается при открытии вопросов */
+@media (min-width: 761px) {
+  .smm-faq { background-image: url("../../img/03c3b75a4ba9d9.png"); background-size: max(1440px, 100%) auto; background-position: center top; min-height: max(537px, calc(100vw * 537 / 1440)); }
+}
