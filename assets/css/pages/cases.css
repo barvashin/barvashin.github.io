@@ -457,3 +457,7 @@ a.cp-logo:hover { transform: translateY(-4px) scale(1.06); }
 @media (max-width: 380px) {
   .cp-niche__name { font-size: 34px; }
 }
+@media (max-width: 380px) {
+  .cp-niche { flex-wrap: wrap; max-width: 100%; }
+  .cp-niche__fact { white-space: normal; max-width: 100%; }
+}
