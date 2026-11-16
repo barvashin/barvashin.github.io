@@ -8,7 +8,7 @@
 Запуск:  python3 -I tools/build.py            — собрать все страницы
          python3 -I tools/build.py index cases — собрать только эти
 """
-import json, os, sys
+import hashlib, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPL = open(os.path.join(ROOT, 'tools', 'TEMPLATE.html'), encoding='utf-8').read()
@@ -18,6 +18,23 @@ NAV = {
     'about': 'index.html#about', 'cases': 'cases.html', 'articles': 'articles.html',
     'mentorship': 'mentorship.html', 'contacts': 'contacts.html',
 }
+
+
+def version(rel):
+    """Короткая метка по содержимому файла (и файлов из его @import).
+    Меняется при каждой правке — браузер видит новый адрес и берёт свежий файл, а не старый из кэша."""
+    path = os.path.join(ROOT, rel)
+    data = open(path, 'rb').read()
+    for imp in re.findall(rb'@import url\("([^"]+)"\)', data):
+        data += open(os.path.join(os.path.dirname(path), imp.decode()), 'rb').read()
+    return hashlib.md5(data).hexdigest()[:8]
+
+
+def stamp(html, root):
+    def repl(m):
+        rel = m.group(2)
+        return f'{m.group(1)}{root}{rel}?v={version(rel)}"'
+    return re.sub(r'((?:href|src)=")' + re.escape(root) + r'(assets/(?:css|js)/[^"?]+\.(?:css|js))"', repl, html)
 
 
 def build(p):
@@ -35,6 +52,7 @@ def build(p):
     if act in NAV:
         href = root + NAV[act]
         html = html.replace(f'<a href="{href}">', f'<a class="is-active" href="{href}" aria-current="page">', 1)
+    html = stamp(html, root)
     out = os.path.join(ROOT, p['out'])
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(html)
