@@ -12,6 +12,12 @@ import hashlib, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPL = open(os.path.join(ROOT, 'tools', 'TEMPLATE.html'), encoding='utf-8').read()
+# Общий финальный призыв: в src страницы пишется {{CTA}} или {{CTA|свой заголовок}}
+CTA = open(os.path.join(ROOT, 'tools', 'CTA.html'), encoding='utf-8').read()
+# Куда ведёт «Написать в Telegram» — меняется в одном месте
+TG_WRITE = 'https://t.me/barvashin_work'
+TG_HANDLE = '@barvashin_work'
+CTA_DEFAULT = 'Нужен SMM, который даёт <b>заявки?</b>'
 PAGES = json.load(open(os.path.join(ROOT, 'tools', 'pages.json'), encoding='utf-8'))
 
 NAV = {
@@ -55,6 +61,7 @@ def typograph_text(t):
     if not t.strip():
         return t
     t = RE_DASH.sub(NBSP + r'\1', t)
+    t = re.sub(r'(\d)([–—-])(?=[$€₽]?\d)', '\\1\\2\u2060', t)  # диапазон «100–500» не рвётся
     t = RE_PART.sub(NBSP + r'\1', t)
     t = RE_NUM.sub(r'\1' + NBSP, t)
     for _ in range(3):
@@ -87,8 +94,10 @@ def build(p):
     if not os.path.exists(src):
         return None
     root = '../' * p['out'].count('/')
-    content = open(src, encoding='utf-8').read().replace('{{ROOT}}', root)
-    html = (TPL.replace('{{CONTENT}}', content)
+    content = open(src, encoding='utf-8').read()
+    content = re.sub(r'\{\{CTA(?:\|([^}]*))?\}\}', lambda m: CTA.replace('{{CTA_TITLE}}', m.group(1) or CTA_DEFAULT), content)
+    content = content.replace('{{TG_WRITE}}', TG_WRITE).replace('{{TG_HANDLE}}', TG_HANDLE).replace('{{ROOT}}', root)
+    html = (TPL.replace('{{TG_WRITE}}', TG_WRITE).replace('{{TG_HANDLE}}', TG_HANDLE).replace('{{CONTENT}}', content)
                .replace('{{TITLE}}', p['title'])
                .replace('{{DESC}}', p['desc'])
                .replace('{{PAGE}}', p['css'])

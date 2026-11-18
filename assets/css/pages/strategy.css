@@ -216,7 +216,8 @@
 .st-final .tg-form input { font-size: 14px; }
 .st-final .tg-form .btn { padding: 12px 18px; font-size: 14px; }
 .st-final .tg-form .btn svg { width: 11px; height: 11px; }
-.st-final__m .btn { color: var(--blue); }
+.st-final__m { margin-top: 28px; }
+.st-final__m .btn { color: var(--blue); padding: 15px 24px; font-size: 16px; }
 .st-report { align-self: start; margin-top: 8px; display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 24px; background: #fff; color: var(--ink); }
 .st-report__head { padding-bottom: 6px; line-height: normal; }
 .st-report__head b { display: block; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }

@@ -142,13 +142,4 @@
     lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1)); sx = null; });
   }
 
-  // Формы «ник в Telegram»: открываем чат с Рахимом
-  document.querySelectorAll('form[data-tg-form]').forEach(function (f) {
-    f.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var nick = (f.querySelector('input') || {}).value || '';
-      var text = 'Здравствуйте! Мой ник в Telegram: ' + nick;
-      window.open('https://t.me/rakhimbarvashin?text=' + encodeURIComponent(text), '_blank', 'noopener');
-    });
-  });
 })();

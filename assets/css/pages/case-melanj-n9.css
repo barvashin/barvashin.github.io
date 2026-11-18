@@ -285,3 +285,9 @@
   .mj-facts .cs-facts > div { padding: 14px 0; }
   .mj-facts .cs-facts dt { width: auto; }
 }
+
+/* Фото упаковки тянется на всю высоту колонки офферов (их три) */
+@media (min-width: 761px) {
+  .mj-pack__photo { position: relative; flex: 1 1 0; height: auto; min-height: 300px; }
+  .mj-pack__photo img { position: absolute; inset: 0; }
+}

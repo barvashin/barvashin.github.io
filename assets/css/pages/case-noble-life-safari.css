@@ -288,3 +288,12 @@
   .nls-tip h2 { font-size: 19px; }
   .nls-tip p { font-size: 15px; }
 }
+
+/* Логотип-ссылка на сайт клиента, мини-фото контента */
+a.nls-site { color: var(--ink); transition: box-shadow .2s ease, transform .2s ease; }
+a.nls-site:hover { transform: translateY(-2px); box-shadow: 0 22px 50px rgba(0, 0, 0, .2); }
+.nls-link { color: var(--blue); border-bottom: 1px solid rgba(0, 97, 254, .35); }
+.nls-link:hover { border-color: var(--blue); }
+.nls-shots { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 420px; }
+.nls-shots img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; }
+@media (max-width: 760px) { .nls-shots { gap: 6px; } .nls-shots img { border-radius: 10px; } }

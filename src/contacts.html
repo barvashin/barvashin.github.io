@@ -17,13 +17,13 @@
         <p class="ct-hero__lead">Выберите, где вам удобнее: Telegram, Instagram или бот с бесплатными материалами.</p>
       </div>
       <div class="ct-cta" data-reveal="100">
-        <a class="ct-cta__tg" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">
-          <span><small>Написать в Telegram</small><b>@rakhimbarvashin</b></span>
+        <a class="ct-cta__tg" href="{{TG_WRITE}}" target="_blank" rel="noopener">
+          <span><small>Написать в Telegram</small><b>{{TG_HANDLE}}</b></span>
           <i class="ct-cta__circle"><svg viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 13.5V5H6.5" stroke="#0061fe" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
         </a>
         <div class="ct-cta__students">
           <p>Хочешь в SMM? Подскажу формат.</p>
-          <a class="btn btn--outline" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">Подобрать формат в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn--outline" href="{{TG_WRITE}}" target="_blank" rel="noopener">Подобрать формат в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -43,11 +43,11 @@
     <div class="ct-list">
       <a class="ct-tg" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener" data-reveal>
         <span class="ct-tg__text">
-          <span class="ct-tg__meta"><span>01</span><span class="ct-tg__chip">Главный канал</span></span>
+          <span class="ct-tg__meta"><span>01</span><span class="ct-tg__chip">Канал</span></span>
           <span class="ct-tg__name">Telegram</span>
           <span class="ct-tg__handle">@rakhimbarvashin</span>
-          <span class="ct-tg__desc">Пишите сюда, если нужен SMM для бизнеса, разбор профиля или наставничество. Отвечаю сам, без посредников. В канале t.me/rakhimbarvashin — посты о маркетинге, SMM и продажах.</span>
-          <span class="btn btn--white ct-tg__btn">Написать в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="ct-tg__desc">Посты о маркетинге, SMM и продажах. Чтобы обсудить SMM для бизнеса, разбор профиля или наставничество, пишите в {{TG_HANDLE}} — отвечаю сам.</span>
+          <span class="btn btn--white ct-tg__btn">Открыть канал <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </span>
         <span class="ct-tg__photo">
           <img loading="lazy" src="{{ROOT}}assets/img/f67cd6505362d3.jpg" alt="">
@@ -96,7 +96,7 @@
       <form class="ct-form" id="ct-form" data-reveal>
         <div class="ct-form__top">
           <span class="ct-form__label">Пример первого сообщения</span>
-          <span class="ct-form__chip">Telegram · @rakhimbarvashin</span>
+          <span class="ct-form__chip">Telegram · {{TG_HANDLE}}</span>
         </div>
         <fieldset class="ct-form__need">
           <legend>Что вам нужно?</legend>
@@ -111,7 +111,8 @@
         <label class="ct-field"><span class="ct-field__label"><i>2</i>Ссылка на профиль</span><input type="text" name="link" placeholder="instagram.com/ваш_профиль"></label>
         <label class="ct-field"><span class="ct-field__label"><i>3</i>Задача</span><input type="text" name="task" placeholder="нужны заявки из соцсетей"></label>
         <div class="ct-form__actions">
-          <button class="btn btn--primary ct-form__send" type="submit">Отправить в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <p class="ct-form__hint" aria-live="polite">Откроется чат со мной, текст уже будет в поле — останется нажать «Отправить».</p>
+          <button class="btn btn--primary ct-form__send" type="submit">Открыть чат с этим текстом <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </form>
       <div class="ct-tips">
@@ -125,7 +126,7 @@
         </div>
         <div class="ct-students" data-reveal="200">
           <p>Хочешь в SMM? Напиши, с нуля ты или уже прошёл курсы, — подскажу формат.</p>
-          <a class="btn btn--white" href="https://t.me/rakhimbarvashin" target="_blank" rel="noopener">Подобрать формат в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn--white" href="{{TG_WRITE}}" target="_blank" rel="noopener">Подобрать формат в Telegram <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
@@ -229,28 +230,15 @@
     </div>
     <div class="faq ct-faq__list" data-reveal="100">
       <details open><summary>Сколько стоит?</summary><p class="answer">Цену называю после брифа и созвона — они бесплатные. Она зависит от задач и ниши. Рекламный бюджет — отдельно.</p></details>
-      <details><summary>С какими нишами работаете?</summary><p class="answer">Рестораны и кофейни, недвижимость, мода, бьюти, туризм, онлайн-школы.</p></details>
+      <details><summary>С какими нишами работаете?</summary><p class="answer">Рестораны и кофейни, недвижимость, мода, бьюти, туризм, образование.</p></details>
       <details><summary>Снимаете сами?</summary><p class="answer">Офлайн-съёмки — там, где я сейчас нахожусь: Дубай, Баку, Москва, Майами. В других городах работаем с вашими материалами и помогаем найти видеографов и мобилографов.</p></details>
       <details><summary>Можно ли учиться с нуля?</summary><p class="answer">Да. Наставничество «Старт в SMM» — 12 недель и 36 созвонов, я лично разбираю каждого. Доход не обещаю — обещаю навык и путь, который приведёт к деньгам.</p></details>
-      <details><summary>Куда лучше написать?</summary><p class="answer">В Telegram @rakhimbarvashin. Если удобнее — в директ Instagram @rakhimbarvashin.</p></details>
+      <details><summary>Куда лучше написать?</summary><p class="answer">В Telegram {{TG_HANDLE}}. Если удобнее — в директ Instagram @rakhimbarvashin.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ===== 08 Финал ===== -->
-<section class="ct-final">
-  <div class="container">
-    <div class="ct-final__box" data-reveal>
-      <span class="ct-final__chip"><i></i>Telegram · @rakhimbarvashin</span>
-      <h2 class="ct-final__title">Нужен SMM, который даёт <b>заявки?</b></h2>
-      <p class="ct-final__lead">Напишите в Telegram — разберу ваш профиль и скажу, где теряются клиенты.</p>
-      <form class="tg-form ct-final__form" data-tg-form>
-        <input type="text" placeholder="Ваш @ник — напишу вам сам" aria-label="Ваш ник в Telegram">
-        <button class="btn btn--dark" type="submit">Отправить <svg viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4 3h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </form>
-    </div>
-  </div>
-</section>
+{{CTA}}
 
 <script>
 /* Контакты: чипы «что вам нужно» и отправка примера сообщения в Telegram */
@@ -275,7 +263,11 @@
       var v = (form.elements[f[0]] || {}).value;
       if (v) lines.push(f[1] + ': ' + v);
     });
-    window.open('https://t.me/rakhimbarvashin?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    var text = lines.join('\n');
+    var hint = form.querySelector('.ct-form__hint');
+    var done = function () { if (hint) hint.textContent = 'Если текст не подставился — он скопирован, вставьте его в чат.'; };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, done); else done();
+    window.open('{{TG_WRITE}}?text=' + encodeURIComponent(text), '_blank', 'noopener');
   });
 })();
 </script>
