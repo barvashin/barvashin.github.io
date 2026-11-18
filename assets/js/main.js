@@ -63,6 +63,32 @@
     });
   });
 
+  // Фоновые видео <video data-bg-video>: грузятся, когда блок близко к экрану,
+  // играют без звука по кругу; паузу снаружи сразу снимаем, меню по правой кнопке отключено
+  document.querySelectorAll('video[data-bg-video]').forEach(function (v) {
+    var loaded = false, visible = false;
+    v.muted = true; v.controls = false;
+    function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    function load() {
+      if (loaded) return; loaded = true;
+      v.querySelectorAll('source[data-src]').forEach(function (s) { s.src = s.getAttribute('data-src'); });
+      v.load();
+    }
+    v.addEventListener('pause', function () { if (visible && !document.hidden) play(); });
+    v.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    if (v.parentElement) v.parentElement.addEventListener('contextmenu', function (e) { if (e.target === v.parentElement) e.preventDefault(); });
+    if (!('IntersectionObserver' in window)) { visible = true; load(); play(); return; }
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        visible = en.isIntersecting;
+        if (visible) { load(); play(); } else if (loaded) v.pause();
+      });
+    }, { rootMargin: '400px 0px' }).observe(v);
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) document.querySelectorAll('video[data-bg-video]').forEach(function (v) { if (v.currentSrc) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } });
+  });
+
   // Формы «ник в Telegram»: открываем чат с Рахимом
   document.querySelectorAll('form[data-tg-form]').forEach(function (f) {
     f.addEventListener('submit', function (e) {
