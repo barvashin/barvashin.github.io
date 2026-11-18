@@ -89,6 +89,66 @@
     if (!document.hidden) document.querySelectorAll('video[data-bg-video]').forEach(function (v) { if (v.currentSrc) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } });
   });
 
+  // Лента [data-carousel]: кнопки назад/вперёд листают на ширину видимой части
+  document.querySelectorAll('[data-carousel]').forEach(function (box) {
+    var track = box.querySelector('[data-carousel-track]');
+    var scope = box.closest('section') || document;
+    var prev = scope.querySelector('[data-carousel-prev]'), next = scope.querySelector('[data-carousel-next]');
+    if (!track) return;
+    function step() { var it = track.querySelector('li'); return it ? Math.max(it.offsetWidth + 16, track.clientWidth - it.offsetWidth) : track.clientWidth * 0.8; }
+    function upd() {
+      if (prev) prev.disabled = track.scrollLeft < 4;
+      if (next) next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
+    }
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', upd, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  });
+
+  // Просмотр фото крупно: ссылки <a data-lightbox="группа" href="большое фото">
+  var groups = {};
+  document.querySelectorAll('a[data-lightbox]').forEach(function (a) {
+    var g = a.getAttribute('data-lightbox'); (groups[g] = groups[g] || []).push(a);
+  });
+  if (Object.keys(groups).length) {
+    var ico = function (d) { return '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="' + d + '" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'; };
+    var lb = document.createElement('div');
+    lb.className = 'lightbox'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Просмотр фото');
+    lb.innerHTML = '<img class="lightbox__img" alt="">' +
+      '<button class="lightbox__btn lightbox__close" type="button" aria-label="Закрыть">' + ico('M3.5 3.5l9 9M12.5 3.5l-9 9') + '</button>' +
+      '<button class="lightbox__btn lightbox__prev" type="button" aria-label="Предыдущее фото">' + ico('M10 3 5 8l5 5') + '</button>' +
+      '<button class="lightbox__btn lightbox__next" type="button" aria-label="Следующее фото">' + ico('M6 3l5 5-5 5') + '</button>' +
+      '<div class="lightbox__count"></div>';
+    document.body.appendChild(lb);
+    var img = lb.querySelector('.lightbox__img'), cnt = lb.querySelector('.lightbox__count');
+    var list = [], idx = 0, last = null;
+    function show(i) {
+      idx = (i + list.length) % list.length;
+      var a = list[idx], th = a.querySelector('img');
+      img.src = a.getAttribute('href'); img.alt = th ? th.alt : '';
+      cnt.textContent = (idx + 1) + ' / ' + list.length;
+      var nx = list[(idx + 1) % list.length]; if (nx) { var pre = new Image(); pre.src = nx.getAttribute('href'); }
+    }
+    function open(g, i) { list = groups[g]; last = document.activeElement; show(i); lb.classList.add('is-open'); document.body.classList.add('lightbox-open'); lb.querySelector('.lightbox__close').focus(); }
+    function close() { lb.classList.remove('is-open'); document.body.classList.remove('lightbox-open'); if (last) last.focus(); }
+    Object.keys(groups).forEach(function (g) {
+      groups[g].forEach(function (a, i) { a.addEventListener('click', function (e) { e.preventDefault(); open(g, i); }); });
+    });
+    lb.querySelector('.lightbox__close').addEventListener('click', close);
+    lb.querySelector('.lightbox__prev').addEventListener('click', function () { show(idx - 1); });
+    lb.querySelector('.lightbox__next').addEventListener('click', function () { show(idx + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(idx - 1); else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+    var sx = null;
+    lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1)); sx = null; });
+  }
+
   // Формы «ник в Telegram»: открываем чат с Рахимом
   document.querySelectorAll('form[data-tg-form]').forEach(function (f) {
     f.addEventListener('submit', function (e) {
