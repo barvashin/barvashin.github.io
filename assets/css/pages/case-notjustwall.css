@@ -183,7 +183,7 @@
 .njw-float--client { top: 150px; left: 57.2%; display: flex; align-items: center; gap: 12px; }
 .njw-float--client img { width: 36px; height: 36px; border-radius: 50%; }
 .njw-float--client b { margin-top: 2px; }
-.njw-float--geo { top: 694px; left: 21.6%; }
+.njw-float--geo { top: 240px; left: 57.2%; } /* под плашкой «Клиент», подальше от цифр */
 .njw-float--geo b { margin-top: 4px; }
 
 @media (min-width: 761px) {
@@ -202,8 +202,11 @@
 .njw-ba__card ul { width: 100%; display: flex; flex-direction: column; gap: 14px; }
 .njw-ba__card li { display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 12px; border-radius: 14px; background: var(--card-2); font-size: 15px; font-weight: 500; line-height: 1.45; }
 .njw-ba__card--after li { background: rgba(255, 255, 255, .14); }
-.njw-ba__sign { flex: none; display: inline-flex; align-items: center; justify-content: center; padding: 3px 9px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 700; line-height: 1.36; }
-.njw-ba__card--after .njw-ba__sign { background: #fff; color: var(--blue); padding: 3px 8px; }
+/* Знак в кружке рисуем полосками, а не символом: так минус и плюс всегда ровно по центру */
+.njw-ba__sign { flex: none; position: relative; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 0; }
+.njw-ba__sign::before, .njw-ba__card--after .njw-ba__sign::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 2px; border-radius: 1px; background: currentColor; transform: translate(-50%, -50%); }
+.njw-ba__card--after .njw-ba__sign { background: #fff; color: var(--blue); }
+.njw-ba__card--after .njw-ba__sign::after { transform: translate(-50%, -50%) rotate(90deg); }
 .njw-ba__arrow { flex: none; align-self: center; width: 50px; height: 50px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; }
 .njw-ba__arrow img { width: 22px; height: 22px; }
 
@@ -271,7 +274,7 @@
   .njw-hero__text { width: 560px; }
   .njw-hero__stats { grid-template-columns: repeat(2, 1fr); }
   .njw-float--client { left: auto; right: 40px; }
-  .njw-float--geo { top: auto; bottom: 60px; left: auto; right: 40px; }
+  .njw-float--geo { left: auto; right: 40px; }
   .njw-about .cs-head { width: 340px; }
   .njw-about .cs-facts dt { width: 140px; }
   .njw-steps { grid-template-columns: repeat(2, 1fr); }
@@ -287,6 +290,7 @@
   .njw-rec .njw-mcard__big { font-size: 36px; }
 }
 @media (max-width: 960px) and (min-width: 761px) {
+  .njw-float--geo { display: none; } /* на узком планшете ей негде встать, не заезжая на заголовок; география есть в фактах ниже */
   .njw-reels__row { flex-direction: column; }
   .njw-reels__grid { max-width: none; width: 100%; }
   .njw-money__row { flex-direction: column; }

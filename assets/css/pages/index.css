@@ -130,7 +130,17 @@
    02 Клиенты
    ========================================================= */
 .clients { padding: 30px 0; }
-.clients__card { display: grid; grid-template-columns: repeat(7, 150px); justify-content: center; gap: 28px 8px; padding: 36px 32px; background: #fff; border-radius: 28px; }
+/* Логотипы едут по кругу слева направо без конца: два одинаковых списка подряд, лента сдвигается ровно на один список */
+.clients__card { position: relative; overflow: hidden; padding: 36px 0; background: #fff; border-radius: 28px; }
+.clients__card::before, .clients__card::after { content: ""; position: absolute; top: 0; bottom: 0; z-index: 1; width: 90px; pointer-events: none; }
+.clients__card::before { left: 0; background: linear-gradient(90deg, #fff, rgba(255,255,255,0)); }
+.clients__card::after { right: 0; background: linear-gradient(270deg, #fff, rgba(255,255,255,0)); }
+.clients__track { display: flex; width: max-content; animation: clients-run 45s linear infinite; }
+.clients__card:hover .clients__track { animation-play-state: paused; }
+.clients__list { display: flex; flex: none; gap: 8px; padding-right: 8px; }
+.clients__list .logo-item { flex: none; width: 150px; }
+@keyframes clients-run { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .clients__track { animation-duration: 120s; } }
 .logo-item { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
 .logo-item__img { position: relative; width: 76px; height: 76px; }
 .logo-item__img img { position: absolute; max-width: none; left: -15.79%; top: -10.53%; width: 131.58%; height: 131.58%; }
@@ -396,7 +406,7 @@
   .dash__num .u { font-size: 46px; }
   .dash__tabs { position: static; transform: none; }
   .dash__meta .bills { display: none; }
-  .clients__card { grid-template-columns: repeat(7, minmax(0, 1fr)); padding: 32px 20px; }
+  .clients__card { padding: 32px 0; }
   .nums__grid { grid-template-columns: repeat(2, 1fr); }
   .about__grid { grid-template-columns: 40% 1fr; }
   .about__text { padding: 36px; }
@@ -509,9 +519,11 @@
 
   /* 02 */
   .clients { padding: 28px 0; }
-  .clients__card { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 4px; padding: 24px 10px; border-radius: 24px; }
+  .clients__card { padding: 24px 0; border-radius: 24px; }
+  .clients__card::before, .clients__card::after { width: 40px; }
+  .clients__list .logo-item { width: 104px; }
+  .clients__track { animation-duration: 35s; }
   .logo-item { gap: 8px; }
-  .logo-item--d { display: none; }
   .logo-item__img { width: 56px; height: 56px; }
   .logo-item__name { font-size: 12px; }
 
