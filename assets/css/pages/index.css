@@ -368,12 +368,10 @@
 .qa__row { display: flex; align-items: flex-start; gap: 40px; }
 .qa__left { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 .qa__list { flex: none; width: 760px; }
-.qa .faq details { border: 1px solid #d9d9d9; border-radius: 20px; padding: 20px 24px; }
+.qa .faq details { border: 1px solid transparent; border-radius: 20px; padding: 20px 24px; }
 .qa .faq details[open] { border-color: transparent; }
-.qa .faq details:first-child { border-color: transparent; }
 .qa .faq summary { font-size: 18px; font-weight: 500; letter-spacing: -0.01em; line-height: normal; }
 .qa .faq details[open] summary { font-weight: 600; }
-.qa .faq details:not(:first-child)[open] summary { font-weight: 500; }
 .qa .faq .answer { font-size: 15px; line-height: 1.5; }
 
 /* =========================================================

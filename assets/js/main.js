@@ -54,14 +54,7 @@
     });
   });
 
-  // FAQ: открыт только один вопрос в группе
-  document.querySelectorAll('.faq').forEach(function (faq) {
-    faq.querySelectorAll('details').forEach(function (d) {
-      d.addEventListener('toggle', function () {
-        if (d.open) faq.querySelectorAll('details').forEach(function (o) { if (o !== d) o.open = false; });
-      });
-    });
-  });
+  // FAQ: каждый вопрос открывается и закрывается сам по себе, можно открыть все сразу
 
   // Фоновые видео <video data-bg-video>: грузятся, когда блок близко к экрану,
   // играют без звука по кругу; паузу снаружи сразу снимаем, меню по правой кнопке отключено
