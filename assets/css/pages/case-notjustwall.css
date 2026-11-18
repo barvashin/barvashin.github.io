@@ -177,14 +177,15 @@
 .njw-hero__photo { position: absolute; top: 0; right: 0; bottom: 0; width: 51.4%; z-index: 0; }
 .njw-hero__photo > img { width: 100%; height: 100%; object-fit: cover; }
 .njw-hero__photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #0d1016 0%, rgba(13, 16, 22, .35) 45%, rgba(13, 16, 22, 0) 100%); pointer-events: none; }
-.njw-float { position: absolute; z-index: 2; background: #fff; color: var(--ink); border-radius: 20px; padding: 14px 18px; box-shadow: 0 18px 44px rgba(0, 0, 0, .14); }
+/* Плашки «Клиент» и «География» стопкой у правого края фото: прижаты справа, поэтому за экран не вылезают */
+.njw-floats { position: absolute; z-index: 2; top: 150px; right: max(40px, calc(50vw - 600px)); max-width: 330px; display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+.njw-float { background: #fff; color: var(--ink); border-radius: 20px; padding: 14px 18px; box-shadow: 0 18px 44px rgba(0, 0, 0, .14); }
 .njw-float small { display: block; font-size: 12px; font-weight: 500; color: var(--grey); }
 .njw-float b { display: block; font-size: 19px; font-weight: 700; white-space: nowrap; }
-.njw-float--client { top: 150px; left: 57.2%; display: flex; align-items: center; gap: 12px; }
+.njw-float--client { display: flex; align-items: center; gap: 12px; }
 .njw-float--client img { width: 36px; height: 36px; border-radius: 50%; }
 .njw-float--client b { margin-top: 2px; }
-.njw-float--geo { top: 240px; left: 57.2%; } /* под плашкой «Клиент», подальше от цифр */
-.njw-float--geo b { margin-top: 4px; }
+.njw-float--geo b { margin-top: 4px; white-space: normal; }
 
 @media (min-width: 761px) {
   .site-header:not(.is-scrolled) .logo { color: #fff; }
@@ -278,8 +279,6 @@
   .njw-hero__num { font-size: 104px; }
   .njw-hero__text { width: 560px; }
   .njw-hero__stats { grid-template-columns: repeat(2, 1fr); }
-  .njw-float--client { left: auto; right: 40px; }
-  .njw-float--geo { left: auto; right: 40px; }
   .njw-about .cs-head { width: 340px; }
   .njw-about .cs-facts dt { width: 140px; }
   .njw-steps { grid-template-columns: repeat(2, 1fr); }
@@ -317,8 +316,7 @@
   .njw-hero__photo::after { display: none; }
   .njw-float { padding: 14px 18px; }
   .njw-float b { font-size: 17px; }
-  .njw-float--client { top: 14px; left: 14px; right: auto; }
-  .njw-float--geo { top: auto; bottom: 14px; left: 14px; right: auto; }
+  .njw-floats { top: 14px; left: 14px; right: 14px; bottom: 14px; max-width: none; align-items: flex-start; justify-content: space-between; }
   .njw-float--geo b { font-size: 15px; white-space: normal; }
 
   .njw-about { flex-direction: column; gap: 20px; }
