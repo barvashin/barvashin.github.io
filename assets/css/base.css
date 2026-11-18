@@ -274,3 +274,25 @@ main { overflow-x: clip; }
 @media (max-width: 380px) {
   .footer-grid > * { grid-column: 1 / -1; }
 }
+
+/*  Просмотр фото крупно */
+.lightbox { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; background: rgba(8, 10, 14, .92); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s; }
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox__img { max-width: calc(100vw - 160px); max-height: calc(100vh - 96px); border-radius: 16px; object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,.5); user-select: none; }
+.lightbox__btn { position: absolute; width: 52px; height: 52px; border: 0; border-radius: 50%; background: rgba(255,255,255,.12); color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color .2s ease; }
+.lightbox__btn:hover { background: var(--blue); }
+.lightbox__btn svg { width: 18px; height: 18px; }
+.lightbox__close { top: 20px; right: 20px; }
+.lightbox__prev { left: 24px; top: 50%; margin-top: -26px; }
+.lightbox__next { right: 24px; top: 50%; margin-top: -26px; }
+.lightbox__count { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.7); font-size: 14px; font-weight: 500; }
+body.lightbox-open { overflow: hidden; }
+@media (max-width: 760px) {
+  .lightbox__img { max-width: calc(100vw - 24px); max-height: calc(100vh - 140px); border-radius: 12px; }
+  .lightbox__prev, .lightbox__next { top: auto; bottom: 16px; margin-top: 0; width: 46px; height: 46px; }
+  .lightbox__prev { left: 16px; } .lightbox__next { right: 16px; }
+  .lightbox__close { top: 14px; right: 14px; width: 46px; height: 46px; }
+}
+
+/* Метка в плашках: вместо чёрного квадрата — синяя точка с мягким ореолом (одинаково на всех страницах) */
+span.sq { flex: none; width: 8px !important; height: 8px !important; margin: 0 3px 0 5px; border-radius: 50% !important; background: var(--blue) !important; box-shadow: 0 0 0 4px rgba(0, 97, 254, .16); }

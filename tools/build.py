@@ -37,6 +37,51 @@ def stamp(html, root):
     return re.sub(r'((?:href|src)=")' + re.escape(root) + r'(assets/(?:css|js)/[^"?]+\.(?:css|js))"', repl, html)
 
 
+# ---------- Типографика: никаких висячих предлогов, союзов и частиц ----------
+# После коротких слов (предлоги, союзы, местоимения) и чисел ставим неразрывный пробел,
+# перед тире и частицами «же/ли/бы» — тоже. Работает только в тексте, теги и скрипты не трогает.
+NBSP = '\u00a0'
+SHORT3 = ('без|для|над|под|при|про|обо|изо|ото|что|как|или|где|кто|чем|так|уже|ещё|еще|все|всё|его|её|'
+          'это|мой|моя|моё|мои|наш|ваш|они|она|оно|тем|нас|вас|вам|нам|ней|них|вся|чтобы|если|либо|через|'
+          'перед|после|около|между|когда|даже|только|the|and|for|with')
+RE_SHORT = re.compile(r'(?<![\w\-\u00a0.])((?:[A-Za-zА-Яа-яЁё]{1,2})|(?:' + SHORT3 + r'))[ \t\n]+(?=[^\s<])', re.I)
+RE_SHORT_AFTER_NBSP = re.compile(r'(?<=\u00a0)((?:[A-Za-zА-Яа-яЁё]{1,2})|(?:' + SHORT3 + r'))[ \t\n]+(?=[^\s<])', re.I)
+RE_DASH = re.compile(r'[ \t\n]+([—–])')
+RE_NUM = re.compile(r'(\d)[ \t\n]+(?=[^\s<—–])')
+RE_PART = re.compile(r'[ \t\n]+(же|ли|бы)(?![\wА-Яа-яЁё])')
+
+
+def typograph_text(t):
+    if not t.strip():
+        return t
+    t = RE_DASH.sub(NBSP + r'\1', t)
+    t = RE_PART.sub(NBSP + r'\1', t)
+    t = RE_NUM.sub(r'\1' + NBSP, t)
+    for _ in range(3):
+        t = RE_SHORT.sub(r'\1' + NBSP, t)
+        t = RE_SHORT_AFTER_NBSP.sub(r'\1' + NBSP, t)
+    return t
+
+
+def typograph(html):
+    parts = re.split(r'(<[^>]+>)', html)
+    skip = 0
+    out = []
+    for part in parts:
+        if part.startswith('<'):
+            tag = re.match(r'</?\s*([a-zA-Z0-9]+)', part)
+            name = tag.group(1).lower() if tag else ''
+            if name in ('script', 'style', 'textarea', 'title', 'svg'):
+                if part.startswith('</'):
+                    skip = max(0, skip - 1)
+                elif not part.endswith('/>'):
+                    skip += 1
+            out.append(part)
+        else:
+            out.append(part if skip else typograph_text(part))
+    return ''.join(out)
+
+
 def build(p):
     src = os.path.join(ROOT, 'src', p['slug'] + '.html')
     if not os.path.exists(src):
@@ -53,6 +98,8 @@ def build(p):
         href = root + NAV[act]
         html = html.replace(f'<a href="{href}">', f'<a class="is-active" href="{href}" aria-current="page">', 1)
     html = stamp(html, root)
+    i = html.find('<body')
+    html = html[:i] + typograph(html[i:]) if i != -1 else typograph(html)
     out = os.path.join(ROOT, p['out'])
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(html)

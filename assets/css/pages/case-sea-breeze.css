@@ -298,3 +298,19 @@
   .sb-quote__card { left: 14px; right: 14px; top: auto; bottom: 14px; width: auto; padding: 22px; border-radius: 20px; }
   .sb-quote__card blockquote { font-size: 22px; }
 }
+
+/* 03б Ещё одна кампания — компактная строка под сравнением */
+.sb-extra { margin-top: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 40px; padding: 28px 32px; border-radius: 28px; background: #fff; }
+.sb-extra .sb-camp__head { padding-bottom: 0; }
+.sb-extra__nums { display: flex; flex-wrap: wrap; gap: 12px 40px; }
+.sb-extra__nums span { display: flex; align-items: baseline; gap: 10px; font-size: 15px; font-weight: 500; color: var(--grey); }
+.sb-extra__nums b { font-size: 48px; font-weight: 300; line-height: 1; letter-spacing: -0.04em; color: var(--ink); }
+@media (max-width: 1200px) and (min-width: 761px) {
+  .sb-extra { padding: 24px; }
+}
+@media (max-width: 760px) {
+  .sb-extra { margin-top: 12px; flex-direction: column; align-items: flex-start; padding: 20px; border-radius: 24px; }
+  .sb-extra .sb-camp__head h3 { font-size: 22px; }
+  .sb-extra__nums { flex-direction: column; gap: 10px; }
+  .sb-extra__nums b { font-size: 38px; }
+}

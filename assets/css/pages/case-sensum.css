@@ -356,3 +356,25 @@
   .sf-tip__title { font-size: 18px; }
   .sf-tip .btn { padding: 15px 22px; font-size: 16px; line-height: 22px; }
 }
+
+/* 05б Ещё запуск: 14 февраля */
+.sf-feb { display: grid; grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr)); gap: 16px; }
+.sf-feb__card { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding: 26px; border-radius: 24px; background: #fff; }
+.sf-feb__card--blue { background: var(--blue) url("../../img/ee5e45d42c880b.jpg") center / cover no-repeat; color: #fff; }
+.sf-feb__num { font-size: 56px; font-weight: 300; line-height: 1; letter-spacing: -0.05em; white-space: nowrap; }
+.sf-feb__card--blue .sf-feb__num { font-size: 88px; }
+.sf-feb__cap { font-size: 15px; line-height: 1.45; color: var(--grey); }
+.sf-feb__card--blue .sf-feb__cap { color: rgba(255, 255, 255, .85); }
+@media (max-width: 1240px) and (min-width: 761px) {
+  .sf-feb { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sf-feb__card--blue { grid-column: 1 / -1; }
+  .sf-feb__num { font-size: clamp(40px, 4.4vw, 56px); }
+}
+@media (max-width: 760px) {
+  .sf-feb { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sf-feb__card { padding: 20px; gap: 10px; border-radius: 22px; }
+  .sf-feb__card--blue { grid-column: 1 / -1; }
+  .sf-feb__num { font-size: 40px; }
+  .sf-feb__card--blue .sf-feb__num { font-size: 64px; }
+  .sf-feb__cap { font-size: 14px; }
+}

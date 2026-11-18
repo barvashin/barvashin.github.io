@@ -175,8 +175,15 @@
    ========================================================= */
 .about { background-image: url("../../img/b2544c9969e230.png"); scroll-margin-top: 40px; }
 .about__grid { display: grid; grid-template-columns: 480px 1fr; gap: 16px; }
-.about__photo { position: relative; height: 614px; border-radius: 28px; overflow: hidden; background: #fff; }
-.about__photo > img { width: 100%; height: 100%; object-fit: cover; }
+/* Фото всегда той же высоты, что и белая карточка с текстом */
+.about__photo { position: relative; min-height: 614px; border-radius: 28px; overflow: hidden; background: #fff; }
+.about__photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.about__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 4px; }
+.about__blog { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.about__blog span { font-size: 14px; font-weight: 500; color: var(--grey); margin-right: 4px; }
+.about__blog a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 14px; border-radius: 999px; background: var(--card-2, #f4f4f3); font-size: 14px; font-weight: 600; color: var(--ink); transition: background-color .2s ease, color .2s ease; }
+.about__blog a svg { width: 10px; height: 10px; }
+.about__blog a:hover { background: var(--blue); color: #fff; }
 .about__photo .person { position: absolute; left: 20px; bottom: 20px; }
 .about__text { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; padding: 48px; background: #fff; border-radius: 28px; min-width: 0; }
 .about__title { font-size: clamp(30px, 3.61vw, 52px); font-weight: 300; line-height: 1.04; letter-spacing: -0.04em; }
@@ -203,6 +210,9 @@
 .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .svc { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; min-height: 457px; padding: 28px; background: #fff; border-radius: 28px; min-width: 0; transition: box-shadow .25s ease; }
 .svc:hover { box-shadow: var(--shadow); }
+/* Выделенная услуга — SMM под ключ */
+.svc--main { box-shadow: inset 0 0 0 2px var(--blue); }
+.svc--main:hover { box-shadow: inset 0 0 0 2px var(--blue), var(--shadow); }
 .svc__top { width: 100%; display: flex; align-items: center; justify-content: space-between; }
 .svc__chip { background: var(--blue-soft); color: var(--blue); border-radius: 999px; padding: 6px 12px; font-size: 11px; font-weight: 600; line-height: normal; }
 .svc__title { font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
@@ -328,7 +338,7 @@
 .quote__card > * { position: relative; }
 .quote__text { margin: 0; max-width: 960px; font-size: clamp(30px, 3.2vw, 46px); font-weight: 300; line-height: 1.15; letter-spacing: -0.04em; }
 .quote__text b { font-weight: 700; }
-.person--quote { border: 1px solid #e5e8ed; padding: 7px 14px; box-shadow: 0 4px 14px rgba(10, 26, 77, .08); text-align: left; }
+.person--quote { border: 1px solid #e5e8ed; padding: 7px 18px; box-shadow: 0 4px 14px rgba(10, 26, 77, .08); text-align: center; align-items: center; }
 .person--quote b { font-size: 15px; }
 .person--quote span { font-size: 13px; }
 
@@ -540,7 +550,9 @@
 
   /* 04 */
   .about__grid { grid-template-columns: 1fr; gap: 10px; }
-  .about__photo { height: 420px; border-radius: 24px; }
+  .about__photo { min-height: 0; height: 420px; border-radius: 24px; }
+  .about__actions { width: 100%; gap: 14px; }
+  .about__blog { width: 100%; }
   .about__text { gap: 18px; padding: 24px 22px 22px; border-radius: 24px; }
   .about__title { font-size: 30px; }
   .about__lead { font-size: 15px; }
